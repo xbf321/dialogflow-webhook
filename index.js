@@ -4,9 +4,11 @@ const router = require('koa-router')();
 const koaBody = require('koa-body');
 const PORT = 3000;
 const WebhookController = new (require('./controller/webhook'));
+const HomeController = new (require('./controller/home'));
 
 app.use(router.routes());
 
+router.get('/', HomeController.index);
 router.post('/webhook', koaBody(), WebhookController.index);
 
 app.on('error', (err, ctx) => {

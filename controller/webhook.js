@@ -1,4 +1,3 @@
-const Koa = require('koa');
 const urllib = require('urllib');
 
 class WebhookController {
