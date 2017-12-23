@@ -1,0 +1,17 @@
+{
+  "name": "dialogflow-webhook",
+  "version": "1.0.0",
+  "description": "dialogflow-webhook",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.4.1",
+    "koa-body": "^2.5.0",
+    "koa-router": "^7.3.0",
+    "urllib": "^2.25.1"
+  }
+}
