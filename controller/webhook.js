@@ -47,6 +47,7 @@ class WebhookController {
         }
         
         ctx.body = response;
+        console.log(response);
     }
 };
 
