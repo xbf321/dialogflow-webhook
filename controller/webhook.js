@@ -35,15 +35,16 @@ class WebhookController {
             if(city) {
                 // 天气查询
                 // 
-                const qunarWeatherResult =  await urllib.request(`http://qapi.qunar.com/api/weather/current?city=%E5%8C%97%E4%BA%AC`);
-                const requestResult = await urllib.request(`http://php.weather.sina.com.cn/xml.php?city=%B1%B1%BE%A9&password=DJOYnieT8234jlsK&day=0`);
+                // const qunarWeatherResult =  await urllib.request(`http://qapi.qunar.com/api/weather/current?city=%E5%8C%97%E4%BA%AC`);
+                // const requestResult = await urllib.request(`http://php.weather.sina.com.cn/xml.php?city=%B1%B1%BE%A9&password=DJOYnieT8234jlsK&day=0`);
                 
-                const speech = 'good';
-                response.speech = response.displayText = speech;
+                const requestResult = await urllib.request(`http://api.map.baidu.com/telematics/v3/weather?location=${city}&output=json&ak=E4805d16520de693a3fe707cdc962045`);
 
-                if (requestResult.data && requestResult.data.status === 0) {
-                    // const weatherData = requestResult.data.data;
-                    // const speech = `今天${city}天气${weatherData.symbol}.`;
+                if (requestResult.data && requestResult.data.error === 0) {
+                    const weatherData = requestResult.results[0];
+                    const currentWeather = weatherData.weather_data[0];
+                    const speech = `今天${city}天气${currentWeather.weather},${currentWeather.wind},${currentWeather.temperature},PM25值${weatherData.pm25}.`;
+                    response.speech = response.displayText = speech;
                     
                 }
             }
