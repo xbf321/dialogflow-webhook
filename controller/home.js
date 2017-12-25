@@ -1,7 +1,11 @@
-
+const functions = require('../functions');
 class HomeController {
     async index(ctx) {
-        ctx.body = 'hello world.';
+        const response = {};
+        await functions.weather({
+            parameters: { date: '', 'geo-city': '北京' }
+        }, response);
+        ctx.body = response;
     }
 }
 module.exports = HomeController;
