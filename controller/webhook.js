@@ -40,6 +40,7 @@ class WebhookController {
                 
                 const requestResult = await urllib.request(`http://api.map.baidu.com/telematics/v3/weather?location=${city}&output=json&ak=E4805d16520de693a3fe707cdc962045`);
 
+                console.info(requestResult);
                 if (requestResult.data && requestResult.data.error === 0) {
                     const weatherData = requestResult.results[0];
                     const currentWeather = weatherData.weather_data[0];
