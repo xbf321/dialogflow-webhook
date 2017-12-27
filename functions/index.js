@@ -1,3 +1,4 @@
 module.exports = {
-    weather: require('./weather')
+    weather: require('./weather'),
+    time: require('./time')
 };
