@@ -12,4 +12,8 @@ module.exports = async (result, response) => {
     if (date === today) {
         response.speech = response.displayText = `今天是${moment().format('YYYY年MM月DD日')}`;
     }
+
+    if (time) {
+        response.speech = response.displayText = `现在是${time}`;
+    }
 }
